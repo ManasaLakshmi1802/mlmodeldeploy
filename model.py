@@ -16,7 +16,7 @@ def main():
     st.sidebar.title("App Sidebar")
     st.sidebar.markdown("Let's start")
 
-    @st.cache_data(persist = True)
+    @st.cache(persist = True)
     def load(): #Data Loading
         data=pd.read_csv("mushrooms.csv")
         label = LabelEncoder() #you do with OneHotEncoder
@@ -28,7 +28,7 @@ def main():
         st.subheader("Data is displayed")
         st.write(df)
 
-    @st.cache_data(persist = True)
+    @st.cache(persist = True)
     def split(df):
         y = df['class']
         x = df.drop(columns=['class'])
